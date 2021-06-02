@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "chess-gui": {
+      "hosting": {
+        "chess-gui": [
+          "chess-gui"
+        ]
+      }
+    }
+  }
+}
