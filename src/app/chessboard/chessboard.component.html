@@ -1,5 +1,15 @@
 <p>chessboard works!</p>
 <p>{{ (message | async) }}</p>
-<li *ngFor="let entry of entries | async">
-    {{ entry.message }}
-</li>
+<ul>
+    <li *ngFor="let entry of entries | async">
+        {{ entry.message }}
+    </li>
+</ul>
+<ng-container *ngFor="let row of chess.board(); let oddRow = odd">
+    <div>
+        <ng-container *ngFor="let cell of row; let oddColumn = odd">
+            <app-cell *ngIf="(oddRow && oddColumn) || (!oddRow && !oddColumn)" [color]="ColorEnum.Light"></app-cell>
+            <app-cell *ngIf="(oddRow && !oddColumn) || (!oddRow && oddColumn)" [color]="ColorEnum.Dark"></app-cell>
+        </ng-container>
+    </div>
+</ng-container>

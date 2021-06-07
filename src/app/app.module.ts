@@ -6,11 +6,15 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { ChessboardComponent } from './chessboard/chessboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CellComponent } from './chessboard/cell/cell.component';
+import { PieceComponent } from './chessboard/piece/piece.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ChessboardComponent
+    ChessboardComponent,
+    CellComponent,
+    PieceComponent
   ],
   imports: [
     BrowserModule,
