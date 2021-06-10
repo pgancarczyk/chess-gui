@@ -1,1 +1,11 @@
-<p>piece works!</p>
+<span
+    [dndDraggable]="notation"
+    [dndEffectAllowed]="'move'"
+    *ngIf="config.pieces.graphicType == 'text'"
+    [style.color]="color == 'w' ? config.pieces.colors!.white : config.pieces.colors!.black"
+    [style.fontSize]="config.pieces.size + 'px'"
+    [style.top]="(config.pieces.size)*.1 + 'px'"
+    [style.lineHeight]="config.pieces.size*.5 + 'px'"
+    >
+    {{ config.pieces.textSymbols![(color == 'w' ? 'white' : 'black')][type] }}
+</span>

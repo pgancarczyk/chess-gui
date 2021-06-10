@@ -1,1 +1,9 @@
-<div class="{{ color == ColorEnum.Dark ? 'dark' : 'light' }}"></div>
+<div
+    [style.background]="color == ColorEnum.Black ? config.board.cells.colors!.unhovered.black : config.board.cells.colors!.unhovered.white"
+    [style.width]="config.board.cells.size + 'px'"
+    [style.height]="config.board.cells.size + 'px'"
+    [dndDropzone]
+    (dndDrop)="move($event)"
+    >
+    <app-piece *ngIf="piece" [notation]="notation" [color]="piece!.color" [type]="piece!.type"></app-piece>
+</div>

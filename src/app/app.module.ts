@@ -8,6 +8,8 @@ import { ChessboardComponent } from './chessboard/chessboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CellComponent } from './chessboard/cell/cell.component';
 import { PieceComponent } from './chessboard/piece/piece.component';
+import { DndModule } from 'ngx-drag-drop';
+import { DragDropModule } from '@angular/cdk/drag-drop'
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { PieceComponent } from './chessboard/piece/piece.component';
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    DndModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]

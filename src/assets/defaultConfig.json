@@ -1,0 +1,66 @@
+{
+    "pieces": {
+        "graphicType": "text",
+        "size": 60,
+        "textSymbols": {
+            "black": {
+                "r": "♜",
+                "n": "♞",
+                "b": "♝",
+                "q": "♛",
+                "k": "♚",
+                "p": "♟"
+            },
+            "white": {
+                "r": "♖",
+                "n": "♘",
+                "b": "♗",
+                "q": "♕",
+                "k": "♔",
+                "p": "♙"
+            }
+        },
+        "colors": {
+            "black": "black",
+            "white": "white"
+        },
+        "placement": "center",
+        "drag": {
+            "animation": {
+                "interpolation": "linear",
+                "speed": 200
+            },
+            "effect": {
+                "sizeChange": 1.15,
+                "snap": true
+            }
+        }
+    },
+    "board": {
+        "cells": {
+            "graphicType": "none",
+            "size": 100,
+            "colors": {
+                "hover": {
+                    "black": "darkblue",
+                    "white": "lightblue"
+                },
+                "unhovered": {
+                    "black": "darkblue",
+                    "white": "lightblue"
+                }
+            }
+        },
+        "notation": {
+            "font": "Arial",
+            "size": 16,
+            "placement": "in",
+            "repeat": false
+        },
+        "border": {
+            "graphicType": "none",
+            "color": "darkblue",
+            "size": 30
+        }
+    }
+}
