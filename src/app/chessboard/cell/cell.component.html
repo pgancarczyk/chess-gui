@@ -1,7 +1,7 @@
 <div
     [style.background]="color == ColorEnum.Black ? config.board.cells.colors!.unhovered.black : config.board.cells.colors!.unhovered.white"
-    [style.width]="config.board.cells.size + 'px'"
-    [style.height]="config.board.cells.size + 'px'"
+    [style.width]="'calc((100vh - '+(this.config.board.border.size*2)+'px)/8)'"
+    [style.height]="'calc((100vh - '+(this.config.board.border.size*2)+'px)/8)'"
     [dndDropzone]
     (dndDrop)="move($event)"
     >

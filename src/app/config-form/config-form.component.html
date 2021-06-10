@@ -1,0 +1,17 @@
+<h1>GUI-CHESS</h1>
+<p>here is project description</p>
+<div>
+    <p>here are configuration fields</p>
+    <mat-slider thumbLabel [(ngModel)]="config.current.pieces.size" (input)="$event.value && config.current.pieces.size = $event.value" min="10" max="100" step="1"></mat-slider>
+    <input matInput type="color" [(ngModel)]="config.current.board.border.color">
+</div>
+<div>    
+    <p>here is your personal info</p>
+    <mat-form-field>
+        <mat-label>labelka</mat-label>
+        <input matInput>
+    </mat-form-field>
+</div>
+<div>
+    <button>send</button>
+</div>

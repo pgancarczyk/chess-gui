@@ -9,14 +9,24 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CellComponent } from './chessboard/cell/cell.component';
 import { PieceComponent } from './chessboard/piece/piece.component';
 import { DndModule } from 'ngx-drag-drop';
-import { DragDropModule } from '@angular/cdk/drag-drop'
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { LiveEditComponent } from './live-edit/live-edit.component';
+import { ConfigFormComponent } from './config-form/config-form.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSliderModule } from '@angular/material/slider';
+import { FormsModule } from '@angular/forms';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     ChessboardComponent,
     CellComponent,
-    PieceComponent
+    PieceComponent,
+    LiveEditComponent,
+    ConfigFormComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +34,11 @@ import { DragDropModule } from '@angular/cdk/drag-drop'
     AngularFireModule.initializeApp(environment.firebase),
     BrowserAnimationsModule,
     DndModule,
-    DragDropModule
+    DragDropModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSliderModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

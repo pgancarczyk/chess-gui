@@ -1,7 +1,7 @@
 {
     "pieces": {
         "graphicType": "text",
-        "size": 60,
+        "size": 70,
         "textSymbols": {
             "black": {
                 "r": "♜",
@@ -59,7 +59,7 @@
         },
         "border": {
             "graphicType": "none",
-            "color": "darkblue",
+            "color": "#3d32d3",
             "size": 30
         }
     }

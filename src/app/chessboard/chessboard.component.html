@@ -1,6 +1,11 @@
-<div class="chessboard">
+<div
+    class="chessboard"
+    [style.padding]="this.config.board.border.size+'px'"
+    [style.background]="this.config.board.border.color"
+    [style.width]="'calc(100vh - '+(this.config.board.border.size*2)+'px)'"
+    >
     <ng-container *ngFor="let row of rows; let oddRow = odd">
-        <div class="row" [style.height]="config.board.cells.size + 'px'">
+        <div class="row" [style.height]="'calc((100vh - '+(this.config.board.border.size*2)+'px)/8)'">
             <ng-container *ngFor="let column of columns; let oddColumn = odd">
                 <app-cell [piece]="gameService.getPiece(getNotation(column, row))" [notation]="getNotation(column, row)" [color]="(oddRow && oddColumn) || (!oddRow && !oddColumn) ? ColorEnum.White : ColorEnum.Black"></app-cell>
             </ng-container>

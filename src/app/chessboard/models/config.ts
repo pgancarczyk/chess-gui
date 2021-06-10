@@ -67,7 +67,6 @@ export interface Config {
                     white: string;
                 }
             }
-            size: number;
             colors: {
                 hover: {
                     black: string;
@@ -87,8 +86,8 @@ export interface Config {
         };
         border: {
             graphicType: string;
-            color?: string;
-            size?: number;
+            color: string;
+            size: number;
             image?: string;
         };
     }
