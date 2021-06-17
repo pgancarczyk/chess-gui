@@ -1,17 +1,144 @@
-<h1>GUI-CHESS</h1>
-<p>here is project description</p>
+<p>Style the chessboard to your liking. When you are done click on the "Send" button below the configuration form. Please consider sending multiple configurations. Thank you 🙏</p>
 <div>
-    <p>here are configuration fields</p>
-    <mat-slider thumbLabel [(ngModel)]="config.current.pieces.size" (input)="$event.value && config.current.pieces.size = $event.value" min="10" max="100" step="1"></mat-slider>
-    <input matInput type="color" [(ngModel)]="config.current.board.border.color">
+    <h2>Pieces</h2>
+    
+    <div class="container double">
+        <mat-form-field appearance="fill">
+            <mat-label></mat-label>
+            <mat-select [(ngModel)]="config.pieces.graphicType">
+                <!-- <mat-option [value]="'text'">Unicode</mat-option> -->
+                <mat-option [value]="'8_bit'">8-Bit</mat-option>
+                <mat-option [value]="'alpha'">Alpha</mat-option>
+                <mat-option [value]="'bases'">Bases</mat-option>
+                <mat-option [value]="'blindfold'">Blindfold</mat-option>
+                <mat-option [value]="'book'">Book</mat-option>
+                <mat-option [value]="'bubblegum'">Bubblegum</mat-option>
+                <mat-option [value]="'cases'">Cases</mat-option>
+                <mat-option [value]="'classic'">Classic</mat-option>
+                <mat-option [value]="'club'">Club</mat-option>
+                <mat-option [value]="'condal'">Condal</mat-option>
+                <mat-option [value]="'dash'">Dash</mat-option>
+                <mat-option [value]="'game_room'">Game Room</mat-option>
+                <mat-option [value]="'glass'">Glass</mat-option>
+                <mat-option [value]="'gothic'">Gothic</mat-option>
+                <mat-option [value]="'graffiti'">Graffiti</mat-option>
+                <mat-option [value]="'icy_sea'">Icy Sea</mat-option>
+                <mat-option [value]="'light'">Light</mat-option>
+                <mat-option [value]="'lolz'">Lolz</mat-option>
+                <mat-option [value]="'marble'">Marble</mat-option>
+                <mat-option [value]="'maya'">Maya</mat-option>
+                <mat-option [value]="'metal'">Metal</mat-option>
+                <mat-option [value]="'nature'">Nature</mat-option>
+                <mat-option [value]="'neon'">Neon</mat-option>
+                <mat-option [value]="'neo'">Neo</mat-option>
+                <mat-option [value]="'neo_wood'">Neo-Wood</mat-option>
+                <mat-option [value]="'newspaper'">Newspaper</mat-option>
+                <mat-option [value]="'ocean'">Ocean</mat-option>
+                <mat-option [value]="'sky'">Sky</mat-option>
+                <mat-option [value]="'space'">Space</mat-option>
+                <mat-option [value]="'tigers'">Tigers</mat-option>
+                <mat-option [value]="'tournament'">Tournament</mat-option>
+                <mat-option [value]="'vintage'">Vintage</mat-option>
+                <mat-option [value]="'wood'">Wood</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <div>
+            <div class="label-container">
+                <mat-label class="slider">Size</mat-label>
+            </div>
+            <mat-slider thumbLabel [(ngModel)]="config.pieces.size" (input)="$event.value && config.pieces.size = $event.value" min="10" max="100" step="1"></mat-slider>
+        </div>
+    </div>
+<!--     
+    <div class="container double">
+        <mat-form-field appearance="fill">
+            <mat-label>Light color {{ config.current.pieces.colors!.white }}</mat-label>
+            <input matInput type="color" [(ngModel)]="config.current.pieces.colors!.white">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Dark color {{ config.current.pieces.colors!.black }}</mat-label>
+            <input matInput type="color" [(ngModel)]="config.current.pieces.colors!.black">
+        </mat-form-field> -->
+    <!-- </div> -->
+
+    <h2>Files</h2>
+<!-- 
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>Graphic type</mat-label>
+            <mat-select>
+                <mat-option>text</mat-option>
+                <mat-option>img</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div> -->
+
+    <div class="container double">
+        <mat-form-field appearance="fill">
+            <mat-label>Light color {{ config.board.cells.colors.unhovered.white }}</mat-label>
+            <input matInput type="color" [(ngModel)]="config.board.cells.colors.unhovered.white">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Dark color {{ config.board.cells.colors.unhovered.black }}</mat-label>
+            <input matInput type="color" [(ngModel)]="config.board.cells.colors.unhovered.black">
+        </mat-form-field>
+    </div>
+
+    <h2>Board</h2>
+
+    <div class="container double">
+        <mat-form-field appearance="fill">
+            <mat-label>Notation font</mat-label>
+            <mat-select [(ngModel)]="config.board.notation.font">
+                <mat-option [value]="'Arial'">Arial</mat-option>
+                <mat-option [value]="'Arial Black'">Arial Black</mat-option>
+                <mat-option [value]="'Verdana'">Verdana</mat-option>
+                <mat-option [value]="'Tahoma'">Tahoma</mat-option>
+                <mat-option [value]="'Trebuchet MS'">Trebuchet MS</mat-option>
+                <mat-option [value]="'Impact'">Impact</mat-option>
+                <mat-option [value]="'Times New Roman'">Times New Roman</mat-option>
+                <mat-option [value]="'Didot'">Didot</mat-option>
+                <mat-option [value]="'Georgia'">Georgia</mat-option>
+                <mat-option [value]="'American Typewriter'">American Typewriter</mat-option>
+                <mat-option [value]="'Andalé Mono'">Andalé Mono</mat-option>
+                <mat-option [value]="'Courier'">Courier</mat-option>
+                <mat-option [value]="'Lucida Console'">Lucida Console</mat-option>
+                <mat-option [value]="'Monaco'">Monaco</mat-option>
+                <mat-option [value]="'Bradley Hand'">Bradley Hand</mat-option>
+                <mat-option [value]="'Brush Script MT'">Brush Script MT</mat-option>
+                <mat-option [value]="'Luminari'">Luminari</mat-option>
+                <mat-option [value]="'Comic Sans MS'">Comic Sans MS</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <div>
+            <div class="label-container">
+                <mat-label class="slider">Notation size</mat-label>
+            </div>
+            <mat-slider thumbLabel [(ngModel)]="config.board.notation.size" (input)="$event.value && config.board.notation.size = $event.value" min="0" max="50" step="1"></mat-slider>
+        </div>
+    </div>
+
+    <div class="container double">
+        <div>
+            <div class="label-container">
+                <mat-label class="slider">Border size</mat-label>
+            </div>
+            <mat-slider thumbLabel [(ngModel)]="config.board.border.size" (input)="$event.value && config.board.border.size = $event.value" min="0" max="100" step="1"></mat-slider>
+        </div>
+        <mat-form-field appearance="fill">
+            <mat-label>Border color {{ config.board.border.color }}</mat-label>
+            <input matInput type="color" [(ngModel)]="config.board.border.color">
+        </mat-form-field>
+    </div>
+
 </div>
-<div>    
-    <p>here is your personal info</p>
+<div style="margin-top: 5vh;">    
     <mat-form-field>
-        <mat-label>labelka</mat-label>
-        <input matInput>
+        <mat-label>Your comment</mat-label>
+        <input [(ngModel)]="config.comment" placeholder="If you wish to leave a comment, write it here." matInput>
     </mat-form-field>
 </div>
-<div>
-    <button>send</button>
+<div class="container triple" style="padding: 0 30%;">
+    <button mat-raised-button [disabled]="sending" (click)="send()" color="primary">Send</button>
+    <button mat-raised-button (click)="reset()">Reset</button>
 </div>

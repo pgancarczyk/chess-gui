@@ -14,10 +14,16 @@ export class PieceComponent {
   @Input() type!: PieceType; 
   @Input() notation!: Square;
 
-  config: Config;
+  config!: Config;
 
   constructor(private configService: ConfigService) {
-    this.config = configService.current;
+    configService.current.subscribe(
+      current => this.config = current
+    )
+  }
+
+  getUrl(): string {
+    return `https://images.chesscomfiles.com/chess-themes/pieces/${this.config.pieces.graphicType}/150/${this.color}${this.type}.png`;
   }
 
 }

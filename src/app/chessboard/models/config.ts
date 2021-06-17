@@ -91,4 +91,5 @@ export interface Config {
             image?: string;
         };
     }
+    comment?: string;
 }

@@ -1,9 +1,25 @@
 <div
     [style.background]="color == ColorEnum.Black ? config.board.cells.colors!.unhovered.black : config.board.cells.colors!.unhovered.white"
-    [style.width]="'calc((100vh - '+(this.config.board.border.size*2)+'px)/8)'"
-    [style.height]="'calc((100vh - '+(this.config.board.border.size*2)+'px)/8)'"
+    [style.width]="'calc((100vh - '+(config.board.border.size*2)+'px)/8)'"
+    [style.height]="'calc((100vh - '+(config.board.border.size*2)+'px)/8)'"
     [dndDropzone]
     (dndDrop)="move($event)"
     >
+    <span
+        class="digit"
+        [style.color]="color == ColorEnum.Black ? config.board.cells.colors.unhovered.white : config.board.cells.colors.unhovered.black"
+        [style.fontSize]="config.board.notation.size/10 + 'vh'"
+        [style.fontFamily]="config.board.notation.font"
+        >
+        {{ getDigitToPrint() }}
+    </span>
+    <span
+        class="letter"
+        [style.color]="color == ColorEnum.Black ? config.board.cells.colors.unhovered.white : config.board.cells.colors.unhovered.black"
+        [style.fontSize]="config.board.notation.size/10 + 'vh'"
+        [style.fontFamily]="config.board.notation.font"
+        >
+        {{ getLetterToPrint() }}
+    </span>
     <app-piece *ngIf="piece" [notation]="notation" [color]="piece!.color" [type]="piece!.type"></app-piece>
 </div>

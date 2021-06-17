@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Config } from '../chessboard/models/config';
 import { ConfigService } from '../services/config.service';
 
 @Component({
@@ -8,9 +10,30 @@ import { ConfigService } from '../services/config.service';
 })
 export class ConfigFormComponent implements OnInit {
 
-  constructor(public config: ConfigService) { }
+  config!: Config;
+  sending: boolean = false;
+
+  constructor(public configService: ConfigService, private snackbar: MatSnackBar) {
+    configService.current.subscribe(
+      current => this.config = current
+    )
+  }
 
   ngOnInit(): void {
+  }
+
+  reset(): void {
+    this.configService.reset();
+  }
+
+  send(): void {
+    this.sending = true;
+    this.snackbar.open('Sending...', '', { duration: 2000 })
+    this.configService.send();
+    setTimeout(() => {
+      this.snackbar.open('Done! Thanks', '', { duration: 2000 })
+      this.sending = false;
+    }, 2000);
   }
 
 }

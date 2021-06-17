@@ -4,3 +4,15 @@ div {
     justify-content: center;
     user-select: none;
 }
+
+.letter, .digit {
+    position: fixed;;
+}
+
+.letter {
+    margin: 0 -60px -60px 0;
+}
+
+.digit {
+    margin: -60px 0 0 -60px;
+}

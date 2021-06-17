@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireDatabase } from '@angular/fire/database'
 import { Observable } from 'rxjs';
 import { Color } from './models/color';
 import { ChessInstance, PieceType, Square } from 'chess.js'
@@ -18,19 +17,17 @@ interface Entry {
 })
 export class ChessboardComponent {
 
-  message: Observable<any>;
-  entries: Observable<Entry[]>;
-  config: Config;
+  config!: Config;
   // rows: Array<Array<{ type: PieceType; color: "w" | "b" } | null>>;
   rows = [ 1, 2, 3, 4, 5, 6, 7, 8 ].reverse();
   columns = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h' ];
 
   ColorEnum = Color;
 
-  constructor(db: AngularFireDatabase, configService: ConfigService, public gameService: GameService) {
-    this.message = db.object('message').valueChanges();
-    this.entries = db.list<Entry>('entries').valueChanges();
-    this.config = configService.current;
+  constructor(configService: ConfigService, public gameService: GameService) {
+    configService.current.subscribe(
+      current => this.config = current
+    )
   }
 
   getNotation(column: string, row: number) {

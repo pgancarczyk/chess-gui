@@ -19,10 +19,12 @@ export class CellComponent {
   @Input() piece!: Piece | null;
   @Input() notation!: Square;
 
-  config: Config;
+  config!: Config;
 
   constructor(private configService: ConfigService, private gameService: GameService) {
-    this.config = configService.current;
+    configService.current.subscribe(
+      current => this.config = current
+    )
   }
 
   move($event: DndDropEvent) {
@@ -30,6 +32,24 @@ export class CellComponent {
       from: $event.data,
       to: this.notation
     })
+  }
+
+  getLetterToPrint(): string {
+    if (this.config.board.notation.placement === 'inside') {
+      const letter = this.notation.charAt(0);
+      const digit = parseInt(this.notation.charAt(1));
+      if (digit === 1) return letter;
+    }
+    return '';
+  }
+
+  getDigitToPrint(): number | null {
+    if (this.config.board.notation.placement === 'inside') {
+      const letter = this.notation.charAt(0);
+      const digit = parseInt(this.notation.charAt(1));
+      if (letter === 'a') return digit;
+    }
+    return null;
   }
 
 }

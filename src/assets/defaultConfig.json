@@ -1,6 +1,6 @@
 {
     "pieces": {
-        "graphicType": "text",
+        "graphicType": "classic",
         "size": 70,
         "textSymbols": {
             "black": {
@@ -21,8 +21,8 @@
             }
         },
         "colors": {
-            "black": "black",
-            "white": "white"
+            "black": "#000000",
+            "white": "#ffffff"
         },
         "placement": "center",
         "drag": {
@@ -46,21 +46,22 @@
                     "white": "lightblue"
                 },
                 "unhovered": {
-                    "black": "darkblue",
-                    "white": "lightblue"
+                    "black": "#222222",
+                    "white": "#cccccc"
                 }
             }
         },
         "notation": {
             "font": "Arial",
             "size": 16,
-            "placement": "in",
+            "placement": "inside",
             "repeat": false
         },
         "border": {
             "graphicType": "none",
-            "color": "#3d32d3",
+            "color": "#682a08",
             "size": 30
         }
-    }
+    },
+    "comment": ""
 }
